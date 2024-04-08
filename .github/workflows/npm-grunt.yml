@@ -16,6 +16,7 @@ jobs:
 
       - name: Build
         run: |
+          cd Portfolio
           npm install
           npm run-script build
         env:
