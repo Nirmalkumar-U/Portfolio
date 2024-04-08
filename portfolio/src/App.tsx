@@ -68,6 +68,7 @@ const App = () => {
             ]
         },
     };
+    console.log(resumeData);
 
     return (
         <div>
@@ -354,7 +355,7 @@ const App = () => {
                                     <input type="text" placeholder="Subject" required />
                                 </div>
                                 <div className="field textarea">
-                                    <textarea className="form-control" cols="30" rows="10" placeholder="Message.." required></textarea>
+                                    <textarea className="form-control" cols={30} rows={10} placeholder="Message.." required></textarea>
                                 </div>
                                 <div className="button-area">
                                     <button type="submit">Send message</button>
