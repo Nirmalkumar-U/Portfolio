@@ -176,7 +176,6 @@ section .title {
     color: #fff;
     font-size: 23px;
     cursor: pointer;
-    display: none;
 }
 
 .scroll-up-btn {
@@ -212,10 +211,10 @@ section .title {
 /*  Home  */
 .home {
     display: flex;
-    background: url("https://source.unsplash.com/720x600/?dark,laptop") no-repeat center;
+    background: url("https://media.licdn.com/dms/image/D5603AQEHyNj4AdcwwA/profile-displayphoto-shrink_200_200/0/1688196948298?e=2147483647&v=beta&t=4yI-1B0Oc5z6rkuTuUmz4IXdYkRoDYXTXlc2wprYRh0") no-repeat center;
     height: 100vh;
     color: #fff;
-    min-height: 500px;
+    min-height: 400px;
     background-size: cover;
     background-attachment: fixed;
     font-family: "Ubuntu", sans-serif;

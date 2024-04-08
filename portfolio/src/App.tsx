@@ -76,19 +76,30 @@ const App = () => {
                 <i className="fas fa-angle-up"></i>
             </div>
 
-            <nav className="navbar">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="max-width">
-                    <div className="logo"><a href="#"><span>AISTECHX</span><span>.com</span></a></div>
-                    <ul className="menu">
-                        <li><a href="#home" className="menu-btn"><strong>Home</strong></a></li>
-                        <li><a href="#about" className="menu-btn"><strong>About</strong></a></li>
-                        <li><a href="#services" className="menu-btn"><strong>Services</strong></a></li>
-                        <li><a href="#skills" className="menu-btn"><strong>Skills</strong></a></li>
-                        <li><a href="#projects" className="menu-btn"><strong>Projects</strong></a></li>
-                        <li><a href="#contact" className="menu-btn"><strong>Contact</strong></a></li>
-                    </ul>
-                    <div className="menu-btn">
-                        <i className="fas fa-bars"></i>
+                    <a className="navbar-brand" href="#home">{resumeData.firstName}{resumeData.lastName}</a>
+                    <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                        <ul className="navbar-nav ml-auto">
+                            <li className="nav-item active">
+                                <a className="nav-link" href="#home">Home</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#about">About</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#services">Services</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#skills">Skills</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#projects">Projects</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#contact">Contact</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </nav>
@@ -97,9 +108,8 @@ const App = () => {
                 <div className="max-width">
                     <div className="home-content">
                         <div className="text-1">Hello, This is</div>
-                        <div className="text-2">Akash Mahapatra</div>
-                        <div className="text-3">And I'm a <span className="typing"></span></div>
-                        <a href="#">Hire me</a>
+                        <div className="text-2">{resumeData.firstName} {resumeData.lastName}</div>
+                        <div className="text-3">And I'm a <span className="typing">{resumeData.title}</span></div>
                     </div>
                 </div>
             </section>
@@ -109,10 +119,10 @@ const App = () => {
                     <h2 className="title">About Me</h2>
                     <div className="about-content">
                         <div className="column left">
-                            <img alt="Profile Image 626x626" />
+                            <img src={"https://media.licdn.com/dms/image/D5603AQEHyNj4AdcwwA/profile-displayphoto-shrink_200_200/0/1688196948298?e=2147483647&v=beta&t=4yI-1B0Oc5z6rkuTuUmz4IXdYkRoDYXTXlc2wprYRh0"} />
                         </div>
                         <div className="column right">
-                            <div className="text">I'm Akash and I'm a <span className="typing-2"></span></div>
+                            <div className="text">I'm {resumeData.firstName} and I'm a {resumeData.title}</div>
                             <p>Seeking an entry-level opportunity with an esteemed organization where I can utilize my skills & enhance learning in the field of work. Capable of mastering new technologies.</p>
                             <br />
                             <div className="text">Why Work With Me</div>
