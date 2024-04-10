@@ -110,7 +110,6 @@ const App = () => {
                 console.error('Error downloading the PDF: ', error);
             });
     };
-    console.log(resumeData);
 
     return (
         <div>
@@ -220,10 +219,8 @@ const App = () => {
                                 <li className="project">Blog (HTML, CSS, Bootstraps)</li>
                                 <li className="project">Currently Working on a Messaging App (Like WhatsApp)</li>
                             </p>
-
                             <br />
                             <div className="text">DEVELOPMENT SKILLS</div>
-
                             <p>
                                 I'm familiar & work on a daily basis with HTML, CSS, JavaScript, Bootstrap, React js and other modern frameworks.
                             </p>
@@ -277,30 +274,34 @@ const App = () => {
             </section>
 
             <section className="projects" id="projects">
-    <div className="container">
-        <h2 className="title text-center mb-5">Projects</h2>
-        <div className="row">
-            <div className="col-lg-6 mb-4">
-                <div className="custom-card">
-                    <img src="https://source.unsplash.com/100x100/?shopping" className="custom-card-img rounded-circle" alt="" />
-                    <div className="custom-card-overlay">
-                        <h3 className="project-title">{resumeData.experience[0].project}</h3>
-                        <p className="project-description">{resumeData.experience[0].description}</p>
+                <div className="container">
+                    <h2 className="title text-center mb-5">Projects</h2>
+                    <div className="row">
+                        <div className="col-lg-6 mb-4">
+                            <div className="custom-card">
+                                <img src="https://source.unsplash.com/100x100/?shopping" className="custom-card-img rounded-circle"/>
+                                <div className="custom-card-overlay">
+                                    <div className="project-info">
+                                        <h3 className="project-title">{resumeData.experience[0].project}</h3>
+                                        <p className="project-description">{resumeData.experience[0].description}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-lg-6 mb-4">
+                            <div className="custom-card">
+                                <img src="https://source.unsplash.com/100x100/?shopping" className="custom-card-img rounded-circle"/>
+                                <div className="custom-card-overlay">
+                                    <div className="project-info">
+                                        <h3 className="project-title">{resumeData.experience[1].project}</h3>
+                                        <p className="project-description">{resumeData.experience[1].description}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="col-lg-6 mb-4">
-                <div className="custom-card">
-                    <img src="https://source.unsplash.com/100x100/?portfolio" className="custom-card-img rounded-circle" alt="" />
-                    <div className="custom-card-overlay">
-                        <h3 className="project-title">{resumeData.experience[1].project}</h3>
-                        <p className="project-description">{resumeData.experience[1].description}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+            </section>
 
 
 

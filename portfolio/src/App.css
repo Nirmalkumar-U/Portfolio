@@ -975,21 +975,32 @@ footer {
 }
 
 .custom-card-img {
-    width: 100%;
+    position: relative;
+  float: left;
+  margin-right: 20px;
+    /* width: 20%;
     height: 100%;
     object-fit: cover;
-    border-radius: 15px;
+    border-radius: 15px; */
 }
 
 .custom-card-overlay {
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    /* bottom: 0;
     left: 0;
     right: 0;
-    padding: 20px;
+    padding: 20px; */
+    height: 100%;
+  width: calc(100% - 100px);
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 0 0 15px 15px;
 }
+.project-info {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 20px;
+  }
 
 .project-title {
     font-size: 1.5rem;
@@ -1002,3 +1013,29 @@ footer {
     font-size: 1rem;
     color: #666;
 }
+.projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0;
+}
+
+.projects h2 {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+}
+
+.project-card {
+  background-color: #fff;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
