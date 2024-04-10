@@ -4,7 +4,8 @@ const App = () => {
     const resumeData = {
         firstName: 'Nirmalkumar',
         lastName: 'Uthamaraj',
-        title: 'Software Developer',
+        title: 'Software Engineer',
+        role: 'Full Stack Developer',
         contact: {
             email: 'unirmalkumar3@gmail.com',
             phone: '8778359970',
@@ -32,18 +33,36 @@ const App = () => {
         experience: [
             {
                 title: 'Software Engineer',
-                company: 'ByteForza Tecnology',
-                duration: 'Augest 2022 - Present',
+                role: 'Full Stack Developer',
+                company: ' ByteForza Technologies',
+                project: 'Smart tools',
+                duration: 'Augest 2022 - Feburary 2023',
                 description: 'description',
                 responsibility: [
-                    'Developed web applications using React.js',
+                    'Developed web applications using Angular',
                     'Collaborated with cross-functional teams to deliver projects on time',
                     'Participated in code reviews and provided constructive feedback',
                     'Collaborated with cross-functional teams to deliver projects on time',
                     'Participated in code reviews and provided constructive feedback',
                 ],
-                environment: 'DotNet Core 6.0, Web API, Angular 14, Bootstrap 5, SQL Server, Power Bi, RDL/RDLC Reporting',
+                environment: 'DotNet Core 6.0, DotNet Entity Framework, Web API, Angular 14, Bootstrap 5, SQL Server',
             },
+            {
+                title: 'Software Engineer',
+                role: 'Full Stack Developer',
+                company: ' ByteForza Technologies',
+                project: 'HMID',
+                duration: 'March 2023 - Present',
+                description: 'description',
+                responsibility: [
+                    'Developed web applications using Angular',
+                    'Collaborated with cross-functional teams to deliver projects on time',
+                    'Participated in code reviews and provided constructive feedback',
+                    'Collaborated with cross-functional teams to deliver projects on time',
+                    'Participated in code reviews and provided constructive feedback',
+                ],
+                environment: 'DotNet Core 6.0, DotNet Entity Framework, Web API, Angular 14, Bootstrap 5, SQL Server, Power Bi, Azure DevOps, RDLC and RDL Reporting',
+            }
         ],
         skills: {
             frontEnd: [
@@ -67,6 +86,29 @@ const App = () => {
                 'GitHub'
             ]
         },
+    };
+
+    // Function to handle the button click event
+    const handleDownload = () => {
+        // Replace 'your-pdf-file.pdf' with the path to your PDF file
+        const pdfUrl = './src/assets/resume.pdf';
+
+        // Triggering the download
+        fetch(pdfUrl)
+            .then(response => response.blob())
+            .then(blob => {
+                const url = window.URL.createObjectURL(new Blob([blob]));
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', 'nirmalkumar-uthamaraj-resume.pdf');
+                document.body.appendChild(link);
+                link.click();
+                link.parentNode?.removeChild(link);
+                window.URL.revokeObjectURL(url);
+            })
+            .catch(error => {
+                console.error('Error downloading the PDF: ', error);
+            });
     };
     console.log(resumeData);
 
@@ -128,7 +170,7 @@ const App = () => {
                             <div className="text">Why Work With Me</div>
                             <p>I'm a great communicator & love to invest the necessary time to understand the customer's problem very well.</p>
 
-                            <a href="#link" target="blank">Download CV</a>
+                            <a href="#link" onClick={handleDownload} target="blank">Download CV</a>
                         </div>
                     </div>
                 </div>
@@ -168,15 +210,6 @@ const App = () => {
                     <h2 className="title">My Skills</h2>
                     <div className="skills-content">
                         <div className="column left">
-
-                            <div className="text">INTERNSHIP</div>
-                            <p>
-                                <li className="intern">#Company Name "Where You work"</li>
-                                <li className="intern">#Company Name "Where You work"</li>
-                                <li className="intern">#Company Name "Where You work"</li>
-                            </p>
-
-                            <br />
                             <div className="text">PROJECT</div>
 
                             <p>
@@ -194,7 +227,6 @@ const App = () => {
                             <p>
                                 I'm familiar & work on a daily basis with HTML, CSS, JavaScript, Bootstrap, React js and other modern frameworks.
                             </p>
-                            <a href="https://aistechx.com/" target="blank">Get Educate...</a>
                         </div>
                         <div className="column right">
                             <div className="bars">
@@ -245,54 +277,38 @@ const App = () => {
             </section>
 
             <section className="projects" id="projects">
-                <div className="max-width">
-                    <h2 className="title">My Projects</h2>
-                    <div className="carousel owl-carousel">
-                        <div className="card">
-                            <div className="box">
-                                <img src="https://source.unsplash.com/720x600/?shopping" alt="" />
-                                <div className="text">Ecommerce</div>
-                                <p>#Project Details:- Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            </div>
-                        </div>
-                        <div className="card">
-                            <div className="box">
-                                <img src="https://source.unsplash.com/720x600/?portfolio" alt="" />
-                                <div className="text">Portfolio</div>
-                                <p>#Project Details:- Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            </div>
-                        </div>
-                        <div className="card">
-                            <div className="box">
-                                <img src="https://source.unsplash.com/720x600/?blog" alt="" />
-                                <div className="text">Blog</div>
-                                <p>#Project Details:- Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            </div>
-                        </div>
-                        <div className="card">
-                            <div className="box">
-                                <img src="https://source.unsplash.com/720x600/?messanger" alt="" />
-                                <div className="text">Messaging App</div>
-                                <p>#Project Details:- Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            </div>
-                        </div>
-                        <div className="card">
-                            <div className="box">
-                                <img src="https://source.unsplash.com/720x600/?app-clone" alt="" />
-                                <div className="text">Clone</div>
-                                <p>#Project Details:- Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            </div>
-                        </div>
-                        <div className="card">
-                            <div className="box">
-                                <img src="https://source.unsplash.com/720x600/?code,demo" alt="" />
-                                <div className="text">Demo</div>
-                                <p>#Project Details:- Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            </div>
-                        </div>
+    <div className="container">
+        <h2 className="title text-center mb-5">Projects</h2>
+        <div className="row">
+            <div className="col-lg-6 mb-4">
+                <div className="custom-card">
+                    <img src="https://source.unsplash.com/100x100/?shopping" className="custom-card-img rounded-circle" alt="" />
+                    <div className="custom-card-overlay">
+                        <h3 className="project-title">{resumeData.experience[0].project}</h3>
+                        <p className="project-description">{resumeData.experience[0].description}</p>
                     </div>
                 </div>
-            </section>
+            </div>
+            <div className="col-lg-6 mb-4">
+                <div className="custom-card">
+                    <img src="https://source.unsplash.com/100x100/?portfolio" className="custom-card-img rounded-circle" alt="" />
+                    <div className="custom-card-overlay">
+                        <h3 className="project-title">{resumeData.experience[1].project}</h3>
+                        <p className="project-description">{resumeData.experience[1].description}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
 
             <section className="contact" id="contact">
                 <div className="max-width">
