@@ -1,406 +1,325 @@
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-const App = () => {
-    const resumeData = {
-        firstName: 'Nirmalkumar',
-        lastName: 'Uthamaraj',
-        title: 'Software Engineer',
-        role: 'Full Stack Developer',
-        contact: {
-            email: 'unirmalkumar3@gmail.com',
-            phone: '8778359970',
-            linkedin: 'linkedin.com/in/johndoe',
-            linkedinLink: 'linkedin.com/in/johndoe',
-        },
-        education: [
-            {
-                educate: 'Best Employee Award In ByteForza',
-                whereAndYer: 'June 2023 and Nov 2023'
-            },
-            {
-                educate: 'M.Sc.Computer Science',
-                whereAndYer: 'KASC - Coimbatore - April 2022'
-            },
-            {
-                educate: 'B.Sc.Computer Science',
-                whereAndYer: 'KASC - Coimbatore - Oct 2020'
-            },
-            {
-                educate: 'Understanding Design',
-                whereAndYer: 'NPTEL - 2022'
-            }
-        ],
-        experience: [
-            {
-                title: 'Software Engineer',
-                role: 'Full Stack Developer',
-                company: ' ByteForza Technologies',
-                project: 'Smart tools',
-                duration: 'Augest 2022 - Feburary 2023',
-                description: 'description',
-                responsibility: [
-                    'Developed web applications using Angular',
-                    'Collaborated with cross-functional teams to deliver projects on time',
-                    'Participated in code reviews and provided constructive feedback',
-                    'Collaborated with cross-functional teams to deliver projects on time',
-                    'Participated in code reviews and provided constructive feedback',
-                ],
-                environment: 'DotNet Core 6.0, DotNet Entity Framework, Web API, Angular 14, Bootstrap 5, SQL Server',
-            },
-            {
-                title: 'Software Engineer',
-                role: 'Full Stack Developer',
-                company: ' ByteForza Technologies',
-                project: 'HMID',
-                duration: 'March 2023 - Present',
-                description: 'description',
-                responsibility: [
-                    'Developed web applications using Angular',
-                    'Collaborated with cross-functional teams to deliver projects on time',
-                    'Participated in code reviews and provided constructive feedback',
-                    'Collaborated with cross-functional teams to deliver projects on time',
-                    'Participated in code reviews and provided constructive feedback',
-                ],
-                environment: 'DotNet Core 6.0, DotNet Entity Framework, Web API, Angular 14, Bootstrap 5, SQL Server, Power Bi, Azure DevOps, RDLC and RDL Reporting',
-            }
-        ],
-        skills: {
-            frontEnd: [
-                'Angular 14',
-                'Bootstrap 5',
-                'HTML, CSS',
-            ],
-            backEnd: [
-                'ASP DotNet',
-                'DotNet Core 6',
-                'DotNet Entity Framework',
-                'Web API',
-                'RDL/RDLC Reporting'
-            ],
-            dataHandlingTechnologies: [
-                'SQL Server',
-                'Power Bi'
-            ],
-            technicalProficiencies: [
-                'Azure DevOps',
-                'GitHub'
-            ]
-        },
-    };
+import React, { useEffect, useRef, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import './App.css';
 
-    // Function to handle the button click event
-    const handleDownload = () => {
-        // Replace 'your-pdf-file.pdf' with the path to your PDF file
-        const pdfUrl = './src/assets/resume.pdf';
+// Define interfaces for TypeScript typing
+interface PersonalInfo {
+    name: string;
+    title: string;
+    summary: string;
+    email: string;
+    phone: string;
+    linkedin: string;
+    github: string;
+    photo: string;
+}
 
-        // Triggering the download
-        fetch(pdfUrl)
-            .then(response => response.blob())
-            .then(blob => {
-                const url = window.URL.createObjectURL(new Blob([blob]));
-                const link = document.createElement('a');
-                link.href = url;
-                link.setAttribute('download', 'nirmalkumar-uthamaraj-resume.pdf');
-                document.body.appendChild(link);
-                link.click();
-                link.parentNode?.removeChild(link);
-                window.URL.revokeObjectURL(url);
-            })
-            .catch(error => {
-                console.error('Error downloading the PDF: ', error);
-            });
-    };
+interface Skill {
+    name: string;
+    proficiency: string;
+    icon: string;
+}
+
+interface Experience {
+    company: string;
+    role: string;
+    duration: string;
+    description: string;
+}
+
+interface Project {
+    name: string;
+    description: string;
+    technologies: string[];
+    link: string;
+    image: string;
+}
+
+// Store all portfolio data in variable objects
+const personalInfo: PersonalInfo = {
+    name: 'John Doe',
+    title: 'Full Stack .NET Developer',
+    summary: 'Passionate Full Stack Developer with over 8 years of experience in .NET technologies, crafting scalable web applications, RESTful APIs, and modern React frontends. Dedicated to clean code, agile methodologies, and innovative solutions.',
+    email: 'john.doe@example.com',
+    phone: '+1 (123) 456-7890',
+    linkedin: 'https://www.linkedin.com/in/johndoe',
+    github: 'https://github.com/johndoe',
+    photo: 'src/assets/SmartTools.png', // Place your profile photo in public/assets/profile.jpg
+};
+
+const skills: Skill[] = [
+    { name: '.NET Core / ASP.NET', proficiency: 'Expert', icon: 'bi-microsoft' },
+    { name: 'C#', proficiency: 'Expert', icon: 'bi-code-slash' },
+    { name: 'React & TypeScript', proficiency: 'Advanced', icon: 'bi-react' },
+    { name: 'SQL Server & Entity Framework', proficiency: 'Expert', icon: 'bi-database' },
+    { name: 'Azure / AWS Cloud Services', proficiency: 'Advanced', icon: 'bi-cloud' },
+    { name: 'RESTful APIs & Microservices', proficiency: 'Expert', icon: 'bi-plug' },
+    { name: 'HTML5, CSS3, Bootstrap', proficiency: 'Advanced', icon: 'bi-bootstrap' },
+    { name: 'Git & CI/CD Pipelines', proficiency: 'Advanced', icon: 'bi-git' },
+];
+
+const experiences: Experience[] = [
+    {
+        company: 'Tech Innovations Inc.',
+        role: 'Senior Full Stack Developer',
+        duration: '2020 - Present',
+        description: 'Spearheaded development of enterprise applications using .NET Core and React, achieving 50% performance gains through optimized queries and CI/CD pipelines.',
+    },
+    {
+        company: 'Software Solutions Ltd.',
+        role: 'Full Stack .NET Developer',
+        duration: '2017 - 2020',
+        description: 'Developed robust web applications with ASP.NET MVC, integrated APIs, and guided junior developers on best practices.',
+    },
+    {
+        company: 'Startup Ventures',
+        role: 'Junior .NET Developer',
+        duration: '2015 - 2017',
+        description: 'Built backend services with C# and .NET Framework, contributed to front-end features, and ensured code quality with unit tests.',
+    },
+];
+
+const projects: Project[] = [
+    {
+        name: 'SmartTools Platform',
+        description: 'A scalable platform with .NET Core, React, and SQL Server, featuring user authentication, payment integration, and real-time data processing.',
+        technologies: ['.NET Core', 'React', 'SQL Server', 'Azure'],
+        link: 'https://github.com/johndoe/smarttools',
+        image: 'src/assets/SmartTools.png',
+    },
+    {
+        name: 'Task Management App',
+        description: 'A collaborative task tracking tool with ASP.NET Web API, Entity Framework, and a React-based UI for real-time updates.',
+        technologies: ['ASP.NET', 'C#', 'React', 'PostgreSQL'],
+        link: 'https://github.com/johndoe/task-manager',
+        image: 'src/assets/SmartTools.png',
+    },
+    {
+        name: 'Portfolio Website',
+        description: 'This responsive portfolio showcasing skills and projects, built with React, TypeScript, and Bootstrap.',
+        technologies: ['React', 'TypeScript', 'Bootstrap'],
+        link: 'https://github.com/johndoe/portfolio',
+        image: 'src/assets/SmartTools.png',
+    },
+];
+
+// Custom hook for Intersection Observer
+const useOnScreen = (ref: React.RefObject<HTMLElement>) => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.unobserve(entry.target); // Stop observing after first visibility
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+
+        return () => {
+            if (ref.current) {
+                observer.unobserve(ref.current);
+            }
+        };
+    }, [ref]);
+
+    return isVisible;
+};
+
+const App: React.FC = () => {
+    // Refs for sections to trigger animations
+    const aboutRef = useRef<HTMLElement>(null);
+    const skillsRef = useRef<HTMLElement>(null);
+    const experienceRef = useRef<HTMLElement>(null);
+    const projectsRef = useRef<HTMLElement>(null);
+    const contactRef = useRef<HTMLElement>(null);
+
+    // Visibility states
+    const isAboutVisible = useOnScreen(aboutRef);
+    const isSkillsVisible = useOnScreen(skillsRef);
+    const isExperienceVisible = useOnScreen(experienceRef);
+    const isProjectsVisible = useOnScreen(projectsRef);
+    const isContactVisible = useOnScreen(contactRef);
 
     return (
-        <div>
-            <div className="scroll-up-btn">
-                <i className="fas fa-angle-up"></i>
-            </div>
-
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div className="max-width">
-                    <a className="navbar-brand" href="#home">{resumeData.firstName}{resumeData.lastName}</a>
-                    <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
-                        <ul className="navbar-nav ml-auto">
-                            <li className="nav-item active">
-                                <a className="nav-link" href="#home">Home</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#about">About</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#services">Services</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#skills">Skills</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#projects">Projects</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#contact">Contact</a>
-                            </li>
+        <div className="App">
+            {/* Navbar - Sleek with hover animation */}
+            <nav className="navbar navbar-expand-lg navbar-dark bg-navy fixed-top shadow-lg">
+                <div className="container-fluid">
+                    <a className="navbar-brand fw-bold animate__animated animate__fadeIn" href="#">
+                        <i className="bi bi-code-slash me-2"></i>{personalInfo.name}
+                    </a>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav ms-auto">
+                            <li className="nav-item"><a className="nav-link nav-link-hover" href="#about">About</a></li>
+                            <li className="nav-item"><a className="nav-link nav-link-hover" href="#skills">Skills</a></li>
+                            <li className="nav-item"><a className="nav-link nav-link-hover" href="#experience">Experience</a></li>
+                            <li className="nav-item"><a className="nav-link nav-link-hover" href="#projects">Projects</a></li>
+                            <li className="nav-item"><a className="nav-link nav-link-hover" href="#contact">Contact</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
 
-            <section className="home" id="home">
-                <div className="max-width">
-                    <div className="home-content">
-                        <div className="text-1">Hello, This is</div>
-                        <div className="text-2">{resumeData.firstName} {resumeData.lastName}</div>
-                        <div className="text-3">And I'm a <span className="typing">{resumeData.title}</span></div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="about" id="about">
-                <div className="max-width">
-                    <h2 className="title">About Me</h2>
-                    <div className="about-content">
-                        <div className="column left">
-                            <img src={"https://media.licdn.com/dms/image/D5603AQEHyNj4AdcwwA/profile-displayphoto-shrink_200_200/0/1688196948298?e=2147483647&v=beta&t=4yI-1B0Oc5z6rkuTuUmz4IXdYkRoDYXTXlc2wprYRh0"} />
-                        </div>
-                        <div className="column right">
-                            <div className="text">I'm {resumeData.firstName} and I'm a {resumeData.title}</div>
-                            <p>Seeking an entry-level opportunity with an esteemed organization where I can utilize my skills & enhance learning in the field of work. Capable of mastering new technologies.</p>
-                            <br />
-                            <div className="text">Why Work With Me</div>
-                            <p>I'm a great communicator & love to invest the necessary time to understand the customer's problem very well.</p>
-
-                            <a href="#link" onClick={handleDownload} target="blank">Download CV</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="services" id="services">
-                <div className="max-width">
-                    <h2 className="title">My services</h2>
-                    <div className="serv-content">
-                        <div className="card">
-                            <div className="box">
-                                <i className="fas fa-laptop-code"></i>
-                                <div className="text">Web Design</div>
-                                <p>Your Next Web Developer, who is working in Shopify Dropshipping Stores, High Converting Ecommerce stores, Product Page also having Custom code, liquid template design.</p>
-                            </div>
-                        </div>
-                        <div className="card">
-                            <div className="box">
-                                <i className="fas fa-user-secret"></i>
-                                <div className="text">User Secret</div>
-                                <p>I ensures that, there is no sensitive data included in the source code and are stored outside of the project folder. And all the data which is stored by User Secrets is not encrypted.</p>
-                            </div>
-                        </div>
-                        <div className="card">
-                            <div className="box">
-                                <i className="fas fa-code"></i>
-                                <div className="text">Apps Design</div>
-                                <p>I encompasses both the user interface(UI) & user experience(UX). The overall style of the app, including things like the colour scheme, font selection, and the types of buttons and widgets which will use.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="skills" id="skills">
-                <div className="max-width">
-                    <h2 className="title">My Skills</h2>
-                    <div className="skills-content">
-                        <div className="column left">
-                            <div className="text">PROJECT</div>
-
-                            <p>
-                                <li className="project">Portfolio (HTML, CSS, js, Bootstraps)</li>
-                                <li className="project">eCommerce Website (Shopify liquid-code, HTML, CSS)</li>
-                                <li className="project">QuickShop - eCommerce Website (Like Amazon, Flipkart etc.)</li>
-                                <li className="project">Fully Responsive Design Email Subscribe form</li>
-                                <li className="project">Blog (HTML, CSS, Bootstraps)</li>
-                                <li className="project">Currently Working on a Messaging App (Like WhatsApp)</li>
-                            </p>
-                            <br />
-                            <div className="text">DEVELOPMENT SKILLS</div>
-                            <p>
-                                I'm familiar & work on a daily basis with HTML, CSS, JavaScript, Bootstrap, React js and other modern frameworks.
-                            </p>
-                        </div>
-                        <div className="column right">
-                            <div className="bars">
-                                <div className="info">
-                                    <span>Python</span>
-                                    <span>90%</span>
-                                </div>
-                                <div className="line python"></div>
-                            </div>
-                            <div className="bars">
-                                <div className="info">
-                                    <span>HTML</span>
-                                    <span>80%</span>
-                                </div>
-                                <div className="line html"></div>
-                            </div>
-                            <div className="bars">
-                                <div className="info">
-                                    <span>CSS</span>
-                                    <span>60%</span>
-                                </div>
-                                <div className="line css"></div>
-                            </div>
-                            <div className="bars">
-                                <div className="info">
-                                    <span>JavaScript</span>
-                                    <span>40%</span>
-                                </div>
-                                <div className="line js"></div>
-                            </div>
-                            <div className="bars">
-                                <div className="info">
-                                    <span>Bootstraps</span>
-                                    <span>60%</span>
-                                </div>
-                                <div className="line bootstraps"></div>
-                            </div>
-                            <div className="bars">
-                                <div className="info">
-                                    <span>Django</span>
-                                    <span>70%</span>
-                                </div>
-                                <div className="line django"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="projects" id="projects">
+            {/* Hero Section - Gradient overlay, animated profile photo */}
+            <section id="about" ref={aboutRef} className="d-flex align-items-center min-vh-100 text-white text-center hero-section">
                 <div className="container">
-                    <h2 className="title text-center mb-5">Projects</h2>
-                    <div className="row">
-                        <div className="col-lg-6 mb-4">
-                            <div className="custom-card">
-                                <img src="https://source.unsplash.com/100x100/?shopping" className="custom-card-img rounded-circle"/>
-                                <div className="custom-card-overlay">
-                                    <div className="project-info">
-                                        <h3 className="project-title">{resumeData.experience[0].project}</h3>
-                                        <p className="project-description">{resumeData.experience[0].description}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="custom-card">
-                                <img src="https://source.unsplash.com/100x100/?shopping" className="custom-card-img rounded-circle"/>
-                                <div className="custom-card-overlay">
-                                    <div className="project-info">
-                                        <h3 className="project-title">{resumeData.experience[1].project}</h3>
-                                        <p className="project-description">{resumeData.experience[1].description}</p>
-                                    </div>
-                                </div>
-                            </div>
+                    <div className="row justify-content-center">
+                        <div className="col-lg-8">
+                            <img
+                                src={personalInfo.photo}
+                                alt="Profile"
+                                className={`rounded-circle mb-4 img-fluid profile-photo ${isAboutVisible ? 'animate__animated animate__zoomIn' : ''}`}
+                            />
+                            <h1 className={`display-3 fw-bold ${isAboutVisible ? 'animate__animated animate__fadeInDown' : ''}`}>{personalInfo.name}</h1>
+                            <h2 className={`lead fw-normal ${isAboutVisible ? 'animate__animated animate__fadeInUp' : ''}`}>{personalInfo.title}</h2>
+                            <p className={`mt-4 mx-auto ${isAboutVisible ? 'animate__animated animate__fadeIn' : ''}`} style={{ maxWidth: '700px' }}>
+                                {personalInfo.summary}
+                            </p>
+                            <a href="#contact" className={`btn btn-outline-light btn-lg mt-3 ${isAboutVisible ? 'animate__animated animate__pulse animate__infinite' : ''}`}>
+                                Get in Touch
+                            </a>
                         </div>
                     </div>
                 </div>
             </section>
 
-
-
-
-
-
-
-
-
-            <section className="contact" id="contact">
-                <div className="max-width">
-                    <h2 className="title">Contact Me</h2>
-                    <div className="contact-content">
-                        <div className="column left">
-                            <div className="text">Get in Touch</div>
-                            <p>Feel free to get in touch with me. I am always open to discussing new projects, creative ideas or opportunities to be a part of your visions. Email me with any questions or inquiries. I'll happy to answer your questions and set up a meeting with you.</p>
-                            <div className="icons">
-
-                                <a href="https://instagram.com/aistscience">
-                                    <div className="row">
-                                        <i className="fa-solid fa-user-large"></i>
-                                        <div className="info">
-                                            <div className="head">Name</div>
-                                            <div className="sub-title"><a href="https://aistechx.com/" style={{ textDecoration: "none", color: "#333" }}>Akash Mahapatra</a></div>
-                                        </div>
+            {/* Skills Section - Animated cards with hover effects */}
+            <section id="skills" ref={skillsRef} className="py-5 bg-light">
+                <div className="container">
+                    <h2 className={`text-center mb-5 fw-bold ${isSkillsVisible ? 'animate__animated animate__fadeIn' : ''}`}>
+                        <i className="bi bi-star-fill me-2 text-primary"></i>Skills
+                    </h2>
+                    <div className="row">
+                        {skills.map((skill, index) => (
+                            <div key={index} className="col-md-4 col-sm-6 mb-4">
+                                <div className={`card h-100 skill-card shadow-sm ${isSkillsVisible ? 'animate__animated animate__fadeInUp' : ''}`} style={{ animationDelay: `${index * 0.1}s` }}>
+                                    <div className="card-body text-center">
+                                        <i className={`bi ${skill.icon} fs-1 mb-3 text-primary`}></i>
+                                        <h5 className="card-title fw-bold">{skill.name}</h5>
+                                        <p className="card-text">{skill.proficiency}</p>
                                     </div>
-                                </a>
-
-                                <div className="row">
-                                    <i className="fa-solid fa-location-dot"></i>
-                                    <div className="info">
-                                        <div className="head">&nbsp;Address</div>
-                                        <div className="sub-title">&nbsp;ABC, 123 Lane, India</div>
-                                    </div>
-                                </div>
-
-                                <div className="row">
-                                    <i className="fa-solid fa-envelope"></i>
-                                    <div className="info">
-                                        <div className="head">Email</div>
-                                        <div className="sub-title"><a href="mailto:#" style={{ textDecoration: "none", color: "#333" }}> example@example.com</a></div>
-                                    </div>
-                                </div>
-
-                                <div className="row">
-                                    <i className="bi bi-translate"></i>
-                                    <div className="info">
-                                        <div className="head">Language Known</div>
-                                        <div className="sub-title">Hindi, English, Odia, Bengali</div>
-                                    </div>
-                                </div>
-
-                                <br />
-
-                                <div className="social-menu">
-                                    <ul>
-                                        <li><a href="https://github.com/akashm47"><i className="fa-brands fa-github"></i></a></li>
-                                        <li><a href="https://www.linkedin.com/in/akashmahapatra/"><i className="fa-brands fa-linkedin-in"></i></a></li>
-                                        <li><a href="https://www.instagram.com/___kaaashx___/"><i className="fa-brands fa-instagram"></i></a></li>
-                                        <li><a href="https://twitter.com/___kaaashx___/"><i className="fa-brands fa-twitter"></i></a></li>
-                                        <li><a href="https://aistechx.com/" title="Get Educate with Us"><i className="fa-solid fa-graduation-cap"></i></a></li>
-                                    </ul>
                                 </div>
                             </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Experience Section - Timeline with animated entries */}
+            <section id="experience" ref={experienceRef} className="py-5 bg-white">
+                <div className="container">
+                    <h2 className={`text-center mb-5 fw-bold ${isExperienceVisible ? 'animate__animated animate__fadeIn' : ''}`}>
+                        <i className="bi bi-briefcase-fill me-2 text-primary"></i>Professional Experience
+                    </h2>
+                    <div className="timeline">
+                        {experiences.map((exp, index) => (
+                            <div key={index} className={`timeline-item mb-5 ${isExperienceVisible ? 'animate__animated animate__slideInLeft' : ''}`} style={{ animationDelay: `${index * 0.2}s` }}>
+                                <div className="row">
+                                    <div className="col-md-3 text-md-end">
+                                        <h5>{exp.duration}</h5>
+                                    </div>
+                                    <div className="col-md-9">
+                                        <h4 className="fw-bold">{exp.role} at {exp.company}</h4>
+                                        <p>{exp.description}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Projects Section - Cards with image zoom, no view button */}
+            <section id="projects" ref={projectsRef} className="py-5 bg-light">
+                <div className="container">
+                    <h2 className={`text-center mb-5 fw-bold ${isProjectsVisible ? 'animate__animated animate__fadeIn' : ''}`}>
+                        <i className="bi bi-folder-fill me-2 text-primary"></i>Projects
+                    </h2>
+                    <div className="row">
+                        {projects.map((project, index) => (
+                            <div key={index} className="col-md-4 mb-4">
+                                <div className={`card h-100 project-card shadow-sm ${isProjectsVisible ? 'animate__animated animate__fadeInUp' : ''}`} style={{ animationDelay: `${index * 0.1}s` }}>
+                                    <div className="project-img-wrapper">
+                                        <img src={project.image} className="card-img-top" alt={project.name} />
+                                    </div>
+                                    <div className="card-body">
+                                        <h5 className="card-title fw-bold">{project.name}</h5>
+                                        <p className="card-text">{project.description}</p>
+                                        <p className="card-text"><small className="text-muted">Technologies: {project.technologies.join(', ')}</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Contact Section - Animated form and info */}
+            <section id="contact" ref={contactRef} className="py-5 bg-light">
+                <div className="container">
+                    <h2 className={`text-center mb-5 fw-bold ${isContactVisible ? 'animate__animated animate__fadeIn' : ''}`}>
+                        <i className="bi bi-envelope-fill me-2 text-primary"></i>Contact Me
+                    </h2>
+                    <div className={`row ${isContactVisible ? 'animate__animated animate__fadeIn' : ''}`}>
+                        <div className="col-md-6 mb-4">
+                            <h4 className="fw-bold">Get in Touch</h4>
+                            <p><i className="bi bi-envelope me-2 text-primary"></i>Email: <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a></p>
+                            <p><i className="bi bi-phone me-2 text-primary"></i>Phone: {personalInfo.phone}</p>
+                            <p><i className="bi bi-linkedin me-2 text-primary"></i>LinkedIn: <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">Connect</a></p>
+                            <p><i className="bi bi-github me-2 text-primary"></i>GitHub: <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">View Profile</a></p>
                         </div>
-                        <div className="column right">
-                            <div className="text">Message me</div>
-                            <form action="#">
-                                <div className="fields">
-                                    <div className="field name">
-                                        <input type="text" placeholder="Your Name" required />
-                                    </div>
-                                    <div className="field email">
-                                        <input type="email" placeholder="Your Email" required />
-                                    </div>
+                        <div className="col-md-6">
+                            <form>
+                                <div className="mb-3">
+                                    <input
+                                        type="text"
+                                        className={`form-control form-control-lg ${isContactVisible ? 'animate__animated animate__fadeIn' : ''}`}
+                                        placeholder="Your Name"
+                                        style={{ animationDelay: '0.1s' }}
+                                    />
                                 </div>
-                                <div className="field">
-                                    <input type="text" placeholder="Subject" required />
+                                <div className="mb-3">
+                                    <input
+                                        type="email"
+                                        className={`form-control form-control-lg ${isContactVisible ? 'animate__animated animate__fadeIn' : ''}`}
+                                        placeholder="Your Email"
+                                        style={{ animationDelay: '0.2s' }}
+                                    />
                                 </div>
-                                <div className="field textarea">
-                                    <textarea className="form-control" cols={30} rows={10} placeholder="Message.." required></textarea>
+                                <div className="mb-3">
+                                    <textarea
+                                        className={`form-control form-control-lg ${isContactVisible ? 'animate__animated animate__fadeIn' : ''}`}
+                                        rows={4}
+                                        placeholder="Your Message"
+                                        style={{ animationDelay: '0.3s' }}
+                                    ></textarea>
                                 </div>
-                                <div className="button-area">
-                                    <button type="submit">Send message</button>
-                                </div>
+                                <button type="submit" className={`btn btn-primary btn-lg ${isContactVisible ? 'animate__animated animate__pulse' : ''}`}>
+                                    Send Message
+                                </button>
                             </form>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <footer>
-                <span>
-                    <a href="https://www.linkedin.com/in/akashmahapatra"> Akash Mahapatra</a> | <span className="far fa-copyright"></span> 2022 All Rights Reserved. Privacy Policy
-                </span>
+            {/* Footer - Gradient with subtle animation */}
+            <footer className="gradient-footer text-white text-center py-4">
+                <p className="animate__animated animate__fadeIn">&copy; {new Date().getFullYear()} {personalInfo.name}. All rights reserved.</p>
             </footer>
         </div>
     );
 };
 
-export default App
-
+export default App;
