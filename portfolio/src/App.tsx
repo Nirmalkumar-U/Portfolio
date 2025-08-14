@@ -32,74 +32,70 @@ interface Project {
     name: string;
     description: string;
     technologies: string[];
-    link: string;
     image: string;
 }
 
 // Store all portfolio data in variable objects
 const personalInfo: PersonalInfo = {
-    name: 'John Doe',
+    name: 'NIRMALKUMAR UTHAMARAJ',
     title: 'Full Stack .NET Developer',
     summary: 'Passionate Full Stack Developer with over 8 years of experience in .NET technologies, crafting scalable web applications, RESTful APIs, and modern React frontends. Dedicated to clean code, agile methodologies, and innovative solutions.',
-    email: 'john.doe@example.com',
-    phone: '+1 (123) 456-7890',
-    linkedin: 'https://www.linkedin.com/in/johndoe',
-    github: 'https://github.com/johndoe',
-    photo: 'src/assets/SmartTools.png', // Place your profile photo in public/assets/profile.jpg
+    email: 'unirmalkumar3@gmail.com',
+    phone: '+91 8778359970',
+    linkedin: 'https://www.linkedin.com/in/nirmalkumar-uthamaraj',
+    github: 'https://github.com/Nirmalkumar-U',
+    photo: 'src/assets/Nirmalkumar_pic.jpg', // Place your profile photo in public/assets/profile.jpg
 };
 
 const skills: Skill[] = [
-    { name: '.NET Core / ASP.NET', proficiency: 'Expert', icon: 'bi-microsoft' },
+    { name: '.NET Core', proficiency: 'Expert', icon: 'bi-microsoft' },
+    { name: '.NET Web API', proficiency: 'Expert', icon: 'bi-microsoft' },
+    { name: '.NET Entity Framework & Linq', proficiency: 'Expert', icon: 'bi-microsoft' },
     { name: 'C#', proficiency: 'Expert', icon: 'bi-code-slash' },
+    { name: 'Angular & TypeScript', proficiency: 'Advanced', icon: 'bi-react' },
     { name: 'React & TypeScript', proficiency: 'Advanced', icon: 'bi-react' },
-    { name: 'SQL Server & Entity Framework', proficiency: 'Expert', icon: 'bi-database' },
-    { name: 'Azure / AWS Cloud Services', proficiency: 'Advanced', icon: 'bi-cloud' },
+    { name: 'SQL Server', proficiency: 'Expert', icon: 'bi-database' },
+    { name: 'Azure DevOps', proficiency: 'Advanced', icon: 'bi-cloud' },
+    { name: 'Agile methodology', proficiency: 'Advanced', icon: 'bi-cloud' },
     { name: 'RESTful APIs & Microservices', proficiency: 'Expert', icon: 'bi-plug' },
-    { name: 'HTML5, CSS3, Bootstrap', proficiency: 'Advanced', icon: 'bi-bootstrap' },
     { name: 'Git & CI/CD Pipelines', proficiency: 'Advanced', icon: 'bi-git' },
+    { name: 'Microsoft PowerBi', proficiency: 'Advanced', icon: 'bi-git' },
+    { name: 'RDL &PDLC Reporting', proficiency: 'Advanced', icon: 'bi-git' },
+    { name: 'HTML5, CSS3, Bootstrap', proficiency: 'Advanced', icon: 'bi-bootstrap' },
 ];
 
 const experiences: Experience[] = [
     {
-        company: 'Tech Innovations Inc.',
-        role: 'Senior Full Stack Developer',
-        duration: '2020 - Present',
+        company: 'Accenture.',
+        role: 'Package App Development Senior Analyst',
+        duration: 'Oct-2024 - Present',
         description: 'Spearheaded development of enterprise applications using .NET Core and React, achieving 50% performance gains through optimized queries and CI/CD pipelines.',
     },
     {
-        company: 'Software Solutions Ltd.',
-        role: 'Full Stack .NET Developer',
-        duration: '2017 - 2020',
+        company: 'Byteforza Technologies PVT Ltd.',
+        role: 'Software Engineer',
+        duration: 'Aug-2022 - Oct-2024',
         description: 'Developed robust web applications with ASP.NET MVC, integrated APIs, and guided junior developers on best practices.',
-    },
-    {
-        company: 'Startup Ventures',
-        role: 'Junior .NET Developer',
-        duration: '2015 - 2017',
-        description: 'Built backend services with C# and .NET Framework, contributed to front-end features, and ensured code quality with unit tests.',
     },
 ];
 
 const projects: Project[] = [
     {
-        name: 'SmartTools Platform',
+        name: 'BECU Credit Card',
         description: 'A scalable platform with .NET Core, React, and SQL Server, featuring user authentication, payment integration, and real-time data processing.',
         technologies: ['.NET Core', 'React', 'SQL Server', 'Azure'],
-        link: 'https://github.com/johndoe/smarttools',
         image: 'src/assets/SmartTools.png',
     },
     {
-        name: 'Task Management App',
+        name: 'HMID',
         description: 'A collaborative task tracking tool with ASP.NET Web API, Entity Framework, and a React-based UI for real-time updates.',
         technologies: ['ASP.NET', 'C#', 'React', 'PostgreSQL'],
-        link: 'https://github.com/johndoe/task-manager',
         image: 'src/assets/SmartTools.png',
     },
     {
-        name: 'Portfolio Website',
+        name: 'Smart Tools',
         description: 'This responsive portfolio showcasing skills and projects, built with React, TypeScript, and Bootstrap.',
         technologies: ['React', 'TypeScript', 'Bootstrap'],
-        link: 'https://github.com/johndoe/portfolio',
         image: 'src/assets/SmartTools.png',
     },
 ];
@@ -175,8 +171,12 @@ const App: React.FC = () => {
             <section id="about" ref={aboutRef} className="d-flex align-items-center min-vh-100 text-white text-center hero-section">
                 <div className="container">
                     <div className="row justify-content-center">
-                        <div className="col-lg-8">
+                        <div className="col-lg-8" style={{ padding: "84px" }} >
                             <img
+                                style={{
+                                    height: "255px",
+                                    width: "236px",
+                                }}
                                 src={personalInfo.photo}
                                 alt="Profile"
                                 className={`rounded-circle mb-4 img-fluid profile-photo ${isAboutVisible ? 'animate__animated animate__zoomIn' : ''}`}
@@ -229,7 +229,7 @@ const App: React.FC = () => {
                                     <div className="col-md-3 text-md-end">
                                         <h5>{exp.duration}</h5>
                                     </div>
-                                    <div className="col-md-9">
+                                    <div className="col-md-9 p-3">
                                         <h4 className="fw-bold">{exp.role} at {exp.company}</h4>
                                         <p>{exp.description}</p>
                                     </div>
@@ -265,50 +265,32 @@ const App: React.FC = () => {
                 </div>
             </section>
 
-            {/* Contact Section - Animated form and info */}
-            <section id="contact" ref={contactRef} className="py-5 bg-light">
+            {/* Contact Section - Altered design with contact details only */}
+            <section id="contact" ref={contactRef} className="py-5">
                 <div className="container">
                     <h2 className={`text-center mb-5 fw-bold ${isContactVisible ? 'animate__animated animate__fadeIn' : ''}`}>
                         <i className="bi bi-envelope-fill me-2 text-primary"></i>Contact Me
                     </h2>
-                    <div className={`row ${isContactVisible ? 'animate__animated animate__fadeIn' : ''}`}>
-                        <div className="col-md-6 mb-4">
-                            <h4 className="fw-bold">Get in Touch</h4>
-                            <p><i className="bi bi-envelope me-2 text-primary"></i>Email: <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a></p>
-                            <p><i className="bi bi-phone me-2 text-primary"></i>Phone: {personalInfo.phone}</p>
-                            <p><i className="bi bi-linkedin me-2 text-primary"></i>LinkedIn: <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">Connect</a></p>
-                            <p><i className="bi bi-github me-2 text-primary"></i>GitHub: <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">View Profile</a></p>
-                        </div>
+                    <div className={`row justify-content-center ${isContactVisible ? 'animate__animated animate__fadeIn' : ''}`}>
                         <div className="col-md-6">
-                            <form>
-                                <div className="mb-3">
-                                    <input
-                                        type="text"
-                                        className={`form-control form-control-lg ${isContactVisible ? 'animate__animated animate__fadeIn' : ''}`}
-                                        placeholder="Your Name"
-                                        style={{ animationDelay: '0.1s' }}
-                                    />
-                                </div>
-                                <div className="mb-3">
-                                    <input
-                                        type="email"
-                                        className={`form-control form-control-lg ${isContactVisible ? 'animate__animated animate__fadeIn' : ''}`}
-                                        placeholder="Your Email"
-                                        style={{ animationDelay: '0.2s' }}
-                                    />
-                                </div>
-                                <div className="mb-3">
-                                    <textarea
-                                        className={`form-control form-control-lg ${isContactVisible ? 'animate__animated animate__fadeIn' : ''}`}
-                                        rows={4}
-                                        placeholder="Your Message"
-                                        style={{ animationDelay: '0.3s' }}
-                                    ></textarea>
-                                </div>
-                                <button type="submit" className={`btn btn-primary btn-lg ${isContactVisible ? 'animate__animated animate__pulse' : ''}`}>
-                                    Send Message
-                                </button>
-                            </form>
+                            <div className="contact-details p-4 rounded shadow-sm">
+                                <p className="mb-3">
+                                    <i className="bi bi-envelope me-2 text-azure"></i>
+                                    <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
+                                </p>
+                                <p className="mb-3">
+                                    <i className="bi bi-phone me-2 text-azure"></i>
+                                    {personalInfo.phone}
+                                </p>
+                                <p className="mb-3">
+                                    <i className="bi bi-linkedin me-2 text-azure"></i>
+                                    <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+                                </p>
+                                <p className="mb-3">
+                                    <i className="bi bi-github me-2 text-azure"></i>
+                                    <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">View GitHub Profile</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

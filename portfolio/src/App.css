@@ -1,9 +1,9 @@
 ﻿/* Custom styles for elegant portfolio with cohesive gradient colors */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     background-color: #F8EDEB; /* Soft Pearl as default body background */
     margin: 0; /* Prevent default margins */
@@ -99,9 +99,9 @@ body {
         color: #FFC107 !important; /* Golden Peach */
     }
 
-/* Skills section with Coral Dusk to Soft Azure gradient */
+/* Skills section with Light Rose to Soft Blue gradient */
 #skills {
-    background: linear-gradient(180deg, #F06292, #4FC3F7); /* Coral Dusk to Soft Azure */
+    background: linear-gradient(180deg, #E57373, #64B5F6); /* Light Rose to Soft Blue */
     padding: 60px 0;
 }
 
@@ -173,9 +173,9 @@ body {
         color: #ECECEC; /* Pearl White for high contrast */
     }
 
-/* Projects section with Warm Rose to Cool Mist gradient */
+/* Projects section with Soft Blue to Rose Quartz gradient */
 #projects {
-    background: linear-gradient(180deg, #FF8A80, #90CAF9); /* Warm Rose to Cool Mist */
+    background: linear-gradient(180deg, #7986CB, #D97F8B); /* Soft Blue to Rose Quartz */
     padding: 60px 0;
 }
 
@@ -212,36 +212,41 @@ body {
     color: #3A3F4A; /* Velvet Gray for high contrast */
 }
 
-/* Contact section with Coral Mist to Aqua Breeze gradient */
+/* Contact section with Dusty Rose to Cool Aqua gradient */
 #contact {
-    background: linear-gradient(180deg, #FFCDD2, #B2EBF2); /* Coral Mist to Aqua Breeze */
+    background: linear-gradient(180deg, #F06292, #4DD0E1); /* Dusty Rose to Cool Aqua */
     padding: 60px 0;
 }
 
-.form-control {
-    border-radius: 8px;
-    border: 1px solid #3A3F4A; /* Velvet Gray */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    color: #1F2526; /* Ebony Base for input text */
+.contact-details {
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white for contrast */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
 
-    .form-control:focus {
-        border-color: #0288D1; /* Azure Blue */
-        box-shadow: 0 0 8px rgba(2, 136, 209, 0.5);
+    .contact-details:hover {
+        transform: translateY(-10px);
     }
 
-.btn-primary {
-    background-color: #0288D1; /* Azure Blue */
-    border-color: #0288D1;
-    color: #FFF5E1; /* Cream Ivory */
-    transition: background-color 0.3s ease, transform 0.3s ease;
+#contact a {
+    color: #1F2526; /* Ebony Base for links */
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-    .btn-primary:hover {
-        background-color: #FFC107; /* Golden Peach */
-        border-color: #FFC107;
-        color: #1F2526; /* Ebony Base */
-        transform: scale(1.05);
+    #contact a:hover {
+        color: #0288D1; /* Azure Blue on hover */
+    }
+
+#contact .bi {
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+    #contact .bi:hover {
+        color: #FFC107; /* Golden Peach on hover */
     }
 
 /* Footer gradient */
