@@ -9,7 +9,7 @@ import libraryManagementImg from '../assets/LibraryManagement.png';
 import bankingToolImg from '../assets/BankingTool.jpg';
 import azureFundamentalImg from '../assets/AzureFundamentals.jpg';
 import understandingDesignImg from '../assets/UnderstandingDesign.jpg';
-import resumePdf from '../assets/Resume.pdf';
+import resumePdf from '../assets/resume.pdf';
 import { PortfolioProps } from '../details/interfaces';
 
 export const navItems = [
@@ -60,7 +60,7 @@ export const details: PortfolioProps = {
         },
     ],
     skillSet: [
-        ".Net Core", ".Net Core WebApi", ".Net Core EntityFrameWork", "C#", , "Test Driven Development", 
+        ".Net Core", ".Net Core WebApi", ".Net Core EntityFrameWork", "C#", "Test Driven Development", 
         "Angular 15", "React TS", "MS Sql Server", "Azure DevOps",
         "Agile methodology", "RESTful APIs", "GitHub CI/CD Pipelines", "Microsoft PowerBi",
         "RDL RDLC Reporting", "HTML5, CSS3, Bootstrap"
