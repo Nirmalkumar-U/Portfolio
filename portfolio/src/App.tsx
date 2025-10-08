@@ -1,8 +1,4 @@
 ﻿import React, { useEffect } from 'react';
-<<<<<<< HEAD
-import resumePdf from './assets/resume.pdf';
-=======
->>>>>>> parent of 7e267d8 (Refactor portfolio for dynamic rendering and maintainability)
 import { About } from './components/about';
 import { Contact } from './components/contact';
 import { Hero } from './components/hero';
