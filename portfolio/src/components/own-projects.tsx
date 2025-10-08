@@ -4,7 +4,7 @@ import { Button, Container } from 'react-bootstrap';
 import './../index.css';
 
 // Projects Section
-export const Projects: React.FC = () => {
+export const OwnProjects: React.FC = () => {
     const projects = [
         {
             title: 'LearnPath',
@@ -27,7 +27,7 @@ export const Projects: React.FC = () => {
     ];
 
     return (
-        <section id="projects" className="projects-section">
+        <section id="ownprojects" className="projects-section">
             <Container>
                 <div className="section-label reveal">FEATURED PROJECTS</div>
 
