@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import resumePdf from './assets/Resume.pdf';
+import resumePdf from './assets/resume.pdf';
 import { About } from './components/about';
 import { Certification } from './components/certification';
 import { Contact } from './components/contact';
