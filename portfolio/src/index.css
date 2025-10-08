@@ -46,7 +46,17 @@ body {
         color: var(--text);
         margin-left: 14px;
         font-weight: 500;
+        transition: color 0.3s ease; 
     }
+
+        .top-nav .nav-link:hover {
+            color: red !important;
+        }
+
+        .top-nav .nav-link.active {
+            color: white !important; 
+            font-weight: 600; 
+        }
 
         .top-nav .nav-link.text-danger {
             color: var(--accent) !important;
@@ -467,3 +477,42 @@ footer {
         color: white;
         transform: translateY(-2px);
     }
+
+.projects-section .project-feature {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Optional: Adds space between content and image */
+}
+
+.projects-section .project-content {
+    flex: 1;
+    min-width: 0; /* Prevents overflow issues */
+}
+
+.projects-section .project-screenshot {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    min-width: 0; /* Prevents overflow issues */
+}
+
+/* Reverse class for alternating order on desktop/laptop */
+.projects-section .project-feature.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Mobile view (e.g., screens up to 768px) */
+@media (max-width: 768px) {
+    .projects-section .project-feature {
+        flex-direction: column !important; /* Forces column layout on mobile */
+    }
+
+        .projects-section .project-feature.reverse {
+            flex-direction: column; /* No reverse on mobile, just stack */
+        }
+
+    .projects-section .project-content,
+    .projects-section .project-screenshot {
+        min-width: 100%; /* Ensures full width stacking on mobile */
+    }
+}

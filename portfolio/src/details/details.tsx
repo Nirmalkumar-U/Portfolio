@@ -160,14 +160,14 @@ export const details: PortfolioProps = {
             platform: 'Microsoft',
             desc: 'This certification validates foundational knowledge of cloud services and how those services are provided with Microsoft Azure.',
             img: azureFundamentalImg,
-            period: 'Issued on March 2025 - Expire on March 2026'
+            period: 'Issued on June 2025 - Expire on June 2026'
         },
         {
             title: 'Understanding design',
             platform: 'NPTEL',
             desc: 'This course covers the fundamental principles of design, including color theory, typography, layout, and composition.',
             img: understandingDesignImg,
-            period: 'Issued on April 2021'
+            period: 'Issued on Sep 2021'
         }
     ]
 };
