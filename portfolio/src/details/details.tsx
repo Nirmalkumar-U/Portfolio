@@ -3,7 +3,7 @@ import AccentureImg from '../assets/Accenture.png'
 import ByteforzaImg from '../assets/Byteforza.png'
 import heroImage from '../assets/Nirmalkumar_pic.jpg';
 import hmidImg from '../assets/hmids.png';
-import smarttoolsImg from '../assets/smarttools.png';
+//import smarttoolsImg from '../assets/smarttools.png';
 import assetManagementImg from '../assets/AssetManagement.png';
 import libraryManagementImg from '../assets/LibraryManagement.png';
 import bankingToolImg from '../assets/BankingTool.jpg';
@@ -127,7 +127,7 @@ export const details: PortfolioProps = {
         {
             title: 'Smart tool',
             desc: 'Smart Tool is a web-based application for storing information regarding US Government inspections, functioning both online and offline.',
-            img: smarttoolsImg,
+            img: hmidImg,
             tags: ['Angular 15', 'Micro Service', 'C Sharp', '.Net Core', '.Net Core WebApi', '.Net Core EntityFrameWork', 'SQL Server', 'PowerBi', 'RDL & RDLC Reporting', 'Azure Devops']
         }
     ],
