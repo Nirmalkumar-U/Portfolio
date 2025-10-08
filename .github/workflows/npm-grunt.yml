@@ -13,13 +13,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          cache: 'npm'
-
+        
       - name: Verify working directory
         run: ls -la
         working-directory: portfolio
