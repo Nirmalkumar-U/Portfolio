@@ -2,82 +2,82 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 
-body {
+/*body {
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
-    background-color: #F5F5F5; /* Light gray as default body background */
-    margin: 0; /* Prevent default margins */
-}
+    background-color: #F5F5F5;*/ /* Light gray as default body background */
+    /*margin: 0;*/ /* Prevent default margins */
+/*}*/
 
 /* New color scheme: Fresh for about, grays for rest */
-.bg-navy {
-    background-color: #333333 !important; /* Dark gray for navbar */
-}
+/*.bg-navy {
+    background-color: #333333 !important;*/ /* Dark gray for navbar */
+/*}
 
 .text-primary {
-    color: #4ECDC4 !important; /* Fresh turquoise for accents in about */
-}
+    color: #4ECDC4 !important;*/ /* Fresh turquoise for accents in about */
+/*}
 
 .text-secondary {
-    color: #666666 !important; /* Medium gray */
-}
+    color: #666666 !important;*/ /* Medium gray */
+/*}
 
 .text-teal {
-    color: #4ECDC4 !important; /* Reuse fresh turquoise */
-}
+    color: #4ECDC4 !important;*/ /* Reuse fresh turquoise */
+/*}
 
 .text-violet {
-    color: #999999 !important; /* Light gray */
-}
+    color: #999999 !important;*/ /* Light gray */
+/*}
 
 .text-gold {
-    color: #CCCCCC !important; /* Lighter gray */
-}
+    color: #CCCCCC !important;*/ /* Lighter gray */
+/*}
 
 .text-azure {
-    color: #4ECDC4 !important; /* Fresh turquoise for links */
-}
+    color: #4ECDC4 !important;*/ /* Fresh turquoise for links */
+/*}
 
 .text-ivory {
-    color: #FFFFFF !important; /* White */
-}
+    color: #FFFFFF !important;*/ /* White */
+/*}
 
 .text-pearl {
-    color: #E0E0E0 !important; /* Very light gray */
-}
+    color: #E0E0E0 !important;*/ /* Very light gray */
+/*}
 
 .text-ebony {
-    color: #333333 !important; /* Dark gray */
-}
+    color: #333333 !important;*/ /* Dark gray */
+/*}*/
 
 /* Hero section (About) with fresh turquoise to blue-gray gradient */
-.hero-section {
+/*.hero-section {
     background: linear-gradient(135deg, rgba(78, 205, 196, 0.9), rgba(85, 98, 112, 0.7)), url('/assets/background-tech.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
     .hero-section h1, .hero-section h2, .hero-section p {
-        color: #FFFFFF; /* White for high contrast */
-    }
+        color: #FFFFFF;*/ /* White for high contrast */
+    /*}*/
 
 /* Profile photo styling with hover animation */
-.profile-photo {
+/*.profile-photo {
     max-width: 250px;
-    border: 6px solid rgba(255, 255, 255, 0.9); /* White border */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    border: 6px solid rgba(255, 255, 255, 0.9);*/ /* White border */
+    /*box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
     .profile-photo:hover {
         transform: scale(1.1) rotate(3deg);
-        box-shadow: 0 10px 25px rgba(78, 205, 196, 0.6); /* Turquoise shadow */
-    }
+        box-shadow: 0 10px 25px rgba(78, 205, 196, 0.6);*/ /* Turquoise shadow */
+    /*}*/
 
 /* Navbar link hover effect */
-.nav-link-hover {
+/*.nav-link-hover {
     position: relative;
-    color: #E0E0E0; /* Light gray */
-    transition: color 0.3s ease;
+    color: #E0E0E0;*/ /* Light gray */
+    /*transition: color 0.3s ease;
 }
 
     .nav-link-hover::after {
@@ -87,8 +87,8 @@ body {
         height: 2px;
         bottom: 0;
         left: 0;
-        background-color: #4ECDC4; /* Turquoise */
-        transition: width 0.3s ease;
+        background-color: #4ECDC4;*/ /* Turquoise */
+        /*transition: width 0.3s ease;
     }
 
     .nav-link-hover:hover::after {
@@ -96,42 +96,42 @@ body {
     }
 
     .nav-link-hover:hover {
-        color: #4ECDC4 !important; /* Turquoise */
-    }
+        color: #4ECDC4 !important;*/ /* Turquoise */
+    /*}*/
 
 /* Skills section with light gray shades gradient */
-#skills {
-    background: linear-gradient(180deg, #F5F5F5, #E0E0E0); /* Light gray shades */
-    padding: 60px 0;
+/*#skills {
+    background: linear-gradient(180deg, #F5F5F5, #E0E0E0);*/ /* Light gray shades */
+    /*padding: 60px 0;
 }
 
 .skill-card {
     border: none;
     border-radius: 12px;
-    background: #FFFFFF; /* White for card contrast */
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
-    border: 1px solid #CCCCCC; /* Light gray border */
-}
+    background: #FFFFFF;*/ /* White for card contrast */
+    /*transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+    border: 1px solid #CCCCCC;*/ /* Light gray border */
+/*}
 
     .skill-card:hover {
         transform: translateY(-12px);
-        box-shadow: 0 12px 25px rgba(153, 153, 153, 0.4); /* Gray shadow */
-        border-color: #999999; /* Medium gray */
-    }
+        box-shadow: 0 12px 25px rgba(153, 153, 153, 0.4);*/ /* Gray shadow */
+        /*border-color: #999999;*/ /* Medium gray */
+    /*}
 
     .skill-card .bi, .skill-card h5, .skill-card p {
-        color: #333333; /* Dark gray for high contrast */
-    }
+        color: #333333;*/ /* Dark gray for high contrast */
+    /*}
 
     .skill-card:hover .bi {
         transform: scale(1.2);
-        color: #666666; /* Medium gray */
-    }
+        color: #666666;*/ /* Medium gray */
+    /*}*/
 
 /* Experience section with medium gray shades gradient */
-#experience {
-    background: linear-gradient(180deg, #E0E0E0, #CCCCCC); /* Gray shades */
-    padding: 60px 0;
+/*#experience {
+    background: linear-gradient(180deg, #E0E0E0, #CCCCCC);*/ /* Gray shades */
+    /*padding: 60px 0;
 }
 
 .timeline {
@@ -149,8 +149,8 @@ body {
         bottom: 0;
         left: calc(25% - 1px);
         width: 3px;
-        background: linear-gradient(to bottom, #999999, #666666); /* Gray gradient */
-    }
+        background: linear-gradient(to bottom, #999999, #666666);*/ /* Gray gradient */
+    /*}
 
     .timeline-item::after {
         content: '';
@@ -159,8 +159,8 @@ body {
         left: calc(25% - 8px);
         width: 16px;
         height: 16px;
-        background: #999999; /* Light gray */
-        border-radius: 50%;
+        background: #999999;*/ /* Light gray */
+        /*border-radius: 50%;
         box-shadow: 0 0 10px rgba(153, 153, 153, 0.6);
         transition: transform 0.3s ease;
     }
@@ -170,44 +170,44 @@ body {
     }
 
     .timeline-item h4, .timeline-item p {
-        color: #333333; /* Dark gray for high contrast */
-    }
+        color: #333333;*/ /* Dark gray for high contrast */
+    /*}*/
 
 /* Projects section with light to medium gray gradient */
-#projects {
-    background: linear-gradient(180deg, #F5F5F5, #CCCCCC); /* Gray shades */
-    padding: 60px 0;
+/*#projects {
+    background: linear-gradient(180deg, #F5F5F5, #CCCCCC);*/ /* Gray shades */
+    /*padding: 60px 0;
 }
 
 .project-card {
     border: none;
     border-radius: 12px;
     overflow: hidden;
-    background: #FFFFFF; /* White for card contrast */
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
-    border: 1px solid #CCCCCC; /* Light gray border */
-}
+    background: #FFFFFF;*/ /* White for card contrast */
+    /*transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+    border: 1px solid #CCCCCC;*/ /* Light gray border */
+/*}
 
     .project-card:hover {
         transform: translateY(-12px);
-        box-shadow: 0 12px 25px rgba(153, 153, 153, 0.4); /* Gray shadow */
-        border-color: #999999; /* Medium gray */
-    }
+        box-shadow: 0 12px 25px rgba(153, 153, 153, 0.4);*/ /* Gray shadow */
+        /*border-color: #999999;*/ /* Medium gray */
+    /*}
 
 .project-img-wrapper {
     overflow: hidden;
-    height: 220px; /* Keep fixed height for consistent card layout; adjust if needed */
-    display: flex;
+    height: 220px;*/ /* Keep fixed height for consistent card layout; adjust if needed */
+    /*display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #F5F5F5; /* Light gray background for letterboxing if using contain */
-}
+    background-color: #F5F5F5;*/ /* Light gray background for letterboxing if using contain */
+/*}
 
 .project-card .card-img-top {
     max-height: 100%;
     max-width: 100%;
-    object-fit: contain; /* Change to 'cover' if you want to fill without gaps (may crop) */
-    transition: transform 0.5s ease;
+    object-fit: contain;*/ /* Change to 'cover' if you want to fill without gaps (may crop) */
+    /*transition: transform 0.5s ease;
 }
 
 .project-card:hover .card-img-top {
@@ -215,18 +215,18 @@ body {
 }
 
 .project-card h5, .project-card p {
-    color: #333333; /* Dark gray for high contrast */
-}
+    color: #333333;*/ /* Dark gray for high contrast */
+/*}*/
 
 /* Contact section with gray shades gradient */
-#contact {
-    background: linear-gradient(180deg, #E0E0E0, #B0B0B0); /* Gray shades */
-    padding: 60px 0;
+/*#contact {
+    background: linear-gradient(180deg, #E0E0E0, #B0B0B0);*/ /* Gray shades */
+    /*padding: 60px 0;
 }
 
 .contact-details {
-    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white for contrast */
-    padding: 30px;
+    background: rgba(255, 255, 255, 0.8);*/ /* Semi-transparent white for contrast */
+    /*padding: 30px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
@@ -237,14 +237,14 @@ body {
     }
 
 #contact a {
-    color: #333333; /* Dark gray for links */
-    text-decoration: none;
+    color: #333333;*/ /* Dark gray for links */
+    /*text-decoration: none;
     transition: color 0.3s ease;
 }
 
     #contact a:hover {
-        color: #666666; /* Medium gray on hover */
-    }
+        color: #666666;*/ /* Medium gray on hover */
+    /*}
 
 #contact .bi {
     font-size: 1.5rem;
@@ -252,21 +252,21 @@ body {
 }
 
     #contact .bi:hover {
-        color: #999999; /* Light gray on hover */
-    }
+        color: #999999;*/ /* Light gray on hover */
+    /*}*/
 
 /* Footer gradient in grays */
-.gradient-footer {
-    background: linear-gradient(180deg, #CCCCCC, #F5F5F5); /* Gray shades */
-    padding: 40px 0;
+/*.gradient-footer {
+    background: linear-gradient(180deg, #CCCCCC, #F5F5F5);*/ /* Gray shades */
+    /*padding: 40px 0;
 }
 
     .gradient-footer p {
-        color: #333333; /* Dark gray */
-    }
+        color: #333333;*/ /* Dark gray */
+    /*}*/
 
 /* Responsive adjustments */
-@media (max-width: 767px) {
+/*@media (max-width: 767px) {
     .timeline-item::before {
         left: 0;
     }
@@ -286,25 +286,25 @@ body {
     .display-3 {
         font-size: 2.5rem;
     }
-}
+}*/
 
 /* Button styling for hero section */
-.btn-outline-light {
-    border-color: #FFFFFF; /* White */
-    color: #FFFFFF;
+/*.btn-outline-light {
+    border-color: #FFFFFF;*/ /* White */
+    /*color: #FFFFFF;
 }
 
     .btn-outline-light:hover {
-        background-color: #4ECDC4; /* Turquoise */
-        border-color: #4ECDC4;
-        color: #333333; /* Dark gray */
-    }
+        background-color: #4ECDC4;*/ /* Turquoise */
+        /*border-color: #4ECDC4;
+        color: #333333;*/ /* Dark gray */
+    /*}*/
 
 /* Ensure no default white or gray backgrounds */
-section, .navbar, footer {
-    background-color: inherit !important; /* Prevent Bootstrap overrides */
-}
+/*section, .navbar, footer {
+    background-color: inherit !important;*/ /* Prevent Bootstrap overrides */
+/*}
 
 .bg-light, .bg-white {
-    background-color: transparent !important; /* Override Bootstrap's bg-light and bg-white */
-}
+    background-color: transparent !important;*/ /* Override Bootstrap's bg-light and bg-white */
+/*}*/
