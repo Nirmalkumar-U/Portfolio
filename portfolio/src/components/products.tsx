@@ -1,25 +1,27 @@
 ﻿import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import { DetailsProps } from '../details/interfaces';
 import './../index.css';
 
-export const Experience: React.FC<DetailsProps> = ({ details }) => {
+export const Products: React.FC<DetailsProps> = ({ details }) => {
     return (
-        <section id="experience" className="projects-section">
+        <section id="products" className="projects-section">
             <Container>
-                <h2 className="section-heading mb-5 reveal">Experience</h2>
-                {details.experience.map((p, i) => (
+                <h2 className="section-heading mb-5 reveal">PRODUCTS</h2>
+                {details.ownProjects.map((p, i) => (
                     <div key={p.title} className={`project-feature reveal ${i % 2 === 1 ? 'reverse' : ''}`}>
                         <div className="project-content" style={{ flex: 1 }}>
                             <h2>{p.title}</h2>
-                            <div style={{ color: 'var(--muted)', marginBottom: 12 }}>{p.period}</div>
+                            <div style={{ color: 'var(--muted)', marginBottom: 12 }}>Mar 2024 - Present</div>
                             <p>{p.desc}</p>
                             <div style={{ marginTop: 16 }}>
                                 {p.tags.map((t) => <span className="tag-pill m-1" key={t}>{t}</span>)}
                             </div>
+                            <div style={{ marginTop: 20 }}>
+                                <Button variant="light" className="me-3" href={p.githubLink} target="_blank">GitHub</Button>
+                            </div>
                         </div>
-
                         <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
                             <div className="project-screenshot">
                                 <img src={p.img} alt={p.title} />

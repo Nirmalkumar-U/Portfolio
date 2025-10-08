@@ -1,16 +1,13 @@
 ﻿import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { DetailsProps } from '../details/interfaces';
 import './../index.css';
-import { PortfolioProps } from '../App';
 
-interface SkillsProps {
-    details: PortfolioProps;
-}
 // Skills Section
-export const Skills: React.FC<SkillsProps> = ({ details }) => {
+export const Skills: React.FC<DetailsProps> = ({ details }) => {
     return (
-        <section id="skills" className="skills-section py-6 reveal-section">
+        <section id="skills" className="skills-section py-2 reveal-section">
             <Container>
                 <h2 className="section-heading mb-5 reveal">Skills</h2>
 

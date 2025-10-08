@@ -1,24 +1,11 @@
 ﻿import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
+import { MainNavbarProps } from '../details/interfaces';
 import './../index.css';
-import { PortfolioProps } from '../App';
-interface NavItem {
-    id: string;
-    label: string;
-    highlight?: boolean;
-}
 
-interface MainNavbarProps {
-    brandName?: string; // optional (fallback to details.name if not provided)
-    navItems: NavItem[];
-    onNavClick: (id: string) => (e: React.MouseEvent) => void;
-    details: PortfolioProps;
-}
-//main navbar
-export const MainNavbar: React.FC<MainNavbarProps> = ({ brandName, navItems, onNavClick, details }) => {
-    const displayName = brandName || `${details.name} ${details.lastName}`;
-
+export const MainNavbar: React.FC<MainNavbarProps> = ({ navItems, onNavClick, details }) => {
+    const displayName = `${details.name} ${details.lastName}`;
     return (
         <Navbar expand="lg" fixed="top" className="top-nav">
             <Container>

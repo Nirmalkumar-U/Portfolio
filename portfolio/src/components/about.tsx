@@ -2,13 +2,9 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import './../index.css';
-import { PortfolioProps } from '../App';
+import { DetailsProps } from '../details/interfaces';
 
-interface AboutProps {
-    details: PortfolioProps;
-}
-// About Section
-export const About: React.FC<AboutProps> = ({ details }) => {
+export const About: React.FC<DetailsProps> = ({ details }) => {
     return (
         <section id="about" className="about-section py-6 reveal-section">
             <Container>
@@ -23,17 +19,13 @@ export const About: React.FC<AboutProps> = ({ details }) => {
                             />
                         </div>
                     </Col>
-
                     <Col lg={7} className="reveal">
                         <h3 className="about-name">{details.name}</h3>
                         <p className="about-pronounce">{details.namePronunciation}</p>
-
                         <p className="about-intro">{details.aboutIntro}</p>
                         <p className="about-desc">{details.aboutDesc1}</p>
                         <p className="about-desc">{details.aboutDesc2}</p>
-
                         <Row className="mt-4 g-3">
-                            {/* Education */}
                             <Col md={6}>
                                 <Card className="about-card p-3">
                                     <h6>Education</h6>
@@ -48,8 +40,6 @@ export const About: React.FC<AboutProps> = ({ details }) => {
                                     </p>
                                 </Card>
                             </Col>
-
-                            {/* Experiences */}
                             <Col md={6}>
                                 <Card className="about-card p-3">
                                     <h6>Experience</h6>
