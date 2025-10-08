@@ -9,7 +9,7 @@ import libraryManagementImg from '../assets/LibraryManagement.png';
 import bankingToolImg from '../assets/BankingTool.jpg';
 import azureFundamentalImg from '../assets/AzureFundamentals.jpg';
 import understandingDesignImg from '../assets/UnderstandingDesign.jpg';
-import resumePdf from '../assets/Resume.pdf';
+import resumePdf from '../assets/resume.pdf';
 import { PortfolioProps } from '../details/interfaces';
 
 export const navItems = [
