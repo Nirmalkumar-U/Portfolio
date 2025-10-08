@@ -1,14 +1,3 @@
-The error `Error: Dependencies lock file is not found in /home/runner/work/Portfolio/Portfolio` indicates that the GitHub Actions workflow is unable to find a lock file (e.g., `package-lock.json`, `npm-shrinkwrap.json`, or `yarn.lock`) in the specified working directory. This is likely because:
-
-1. **No Lock File Present**: A lock file wasn’t generated or committed to your repository.
-2. **Working Directory Mismatch**: The `working-directory` in your workflow might not align with where your project files (including the lock file) are located.
-3. **Cache Issue**: The `npm install` step might not be creating the lock file due to a misconfiguration or missing initial setup.
-
-### Fix
-To resolve this, ensure a lock file is present and correctly referenced in your workflow. Here’s how to update your GitHub Actions workflow:
-
-#### Updated Workflow
-```yaml
 name: Deploy
 
 on:
